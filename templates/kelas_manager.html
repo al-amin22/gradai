@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Grade AI System</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="/static/css/stylesiswa.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    </head>
+<style>
+    .petunjuk-1 {
+        background-color: aqua;
+        margin-left: 10px;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+</style>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="">Grade AI System</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            
+            
+            
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user fa-fw me-1"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" onclick="return confirm('Apakah yakin ingin keluar dari system?');" href="{{url_for('logout')}}">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <img src="/static/img/unja-removebg-preview.png" style="width: 100px; height: 100px; display: block; margin: auto;" alt="1674101744_2022-03-16.png">
+                            <center><li style="font-size: 20px; color: white; "></li><center>
+                            <a class="nav-link" href="{{url_for('indexguru')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link" href="{{url_for('profilguru')}}">
+                                <div class="sb-nav-link-icon"><i class="bi bi-person-square"></i></div>
+                                Profil
+                            </a>
+                            <a class="nav-link" href="{{url_for('kelasguru')}}">
+                                <div class="sb-nav-link-icon"><i class="bi bi-pencil-square"></i></div>
+                                Kelas
+                            </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Kelas Manager
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="">Data siswa</a>
+                                    <a class="nav-link" href="{{url_for('datasoal')}}">Data Soal</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Teacher
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4"><i class="bi bi-columns-gap me-3"></i>Kelas Manager</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Lihat dan kelola kelas</li>
+                        </ol>
+                        <div class="petunjuk">
+                            <center><a href="" onclick="runPopup()">Petunjuk singkat</a>
+                            <script>  
+                              function runPopup(){
+                              window.alert("Silakan masukkan keyword anda berupa kode exam contohnya : (A1B1C )ke dalam kotak teks dan klik tombol 'Cari' untuk memulai pencarian. Jika ingin mengunduh hasil siswa silahkan masuk ke menu unduh dan masukkan keyword kode exam");
+                              };
+                            </script>
+                        </div>
+                    <div class="row">
+                        <div class="hasil_siswa">
+                            <!-- Navbar Search-->
+                                <form method="post" class=" d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                                    <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="Search for..." name="keyword" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                    <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </form>
+                            
+                        <a class="petunjuk-1" href="/unduh/data/siswa">Unduh hasil siswa di sini</a>
+                        
+                        <a class= "petunjuk-1"  href="{{url_for('kriteria')}}">Kriteria Penilaian</a>
+                         
+
+                          
+                           <center><strong><h1>List Hasil Siswa</h1></strong></center>
+                           <table cellspacing='0'>
+                            <thead>
+                            
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>Kode Ujian</th>
+                                    <th>Chapter</th>
+                                    <th>Jawaban</th>
+                                    <th>Skor</th>
+                                    <th>Pemahaman Konsep </th>
+                                    <th>Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for result in results %}
+                                <tr>
+                                    <td class="align-middle">{{result[1]}}</td>
+                                    <td class="align-middle">{{result[2]}}</td>
+                                    <td class="align-middle">{{result[3]}}</td>
+                                    <td class="align-middle">{{result[4]}}</td>
+                                    <td class="align-middle">{{result[5]}}</td>
+                                    <td class="align-middle">{{result[7]}}</td>
+                                    <td class="align-middle">{{result[6]}}</td>
+                    
+                                
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                           </table>
+                        
+                        </div>
+                    </div>
+                    
+                    
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Pendidikan Fisika @NLP team</div>
+                            <div>
+                            </a></center>
+                        </div>
+                            
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="/static/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="/static/js/datatables-simple-demo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Halaman Login</title>
+        <link rel="stylesheet" href="/static/css/login.css">
+    </head>
+   
+    <body>
+        <div class="container">
+          <h1>Login Admin</h1>
+            <form method="post" action="{{url_for('admin')}}">
+                <label>Username</label><br>
+                <input type="text" class="form-control" name="username"><br>
+                <label>Password</label><br>
+                <input type="password" class="form-control" name="password"><br>
+                <button>Log in</button>
+                <p class="login-register-text">Kembali ke halaman home? <a href="{{url_for('index')}}">Home</a></p >
+            </form>
+        </div>
+            
+    </body>
+</html>

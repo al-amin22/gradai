@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generate Code</title>
+  </head>
+  <body>
+    <form action="{{ url_for('generate_code') }}" method="post">
+      <button type="submit">Generate Code</button>
+    </form>
+    {% if code %}
+      <p>Your code is: {{ code }}</p>
+    {% endif %}
+  </body>
+</html>

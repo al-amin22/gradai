@@ -1,0 +1,42 @@
+*{
+
+ 
+    background-color: none;
+
+
+
+}
+.bd-utama {
+    background: fixed;
+    background-color: rgb(175, 194, 199);
+    height: auto;
+
+
+
+
+
+
+}
+.bd_soal {
+    
+    background-color: rgb(185, 229, 255);
+    padding: 0%;
+    position: relative;
+    width: 550px;
+    height: auto;
+    margin-left: 30%;
+    margin-right: 30%;
+    
+
+}
+
+.text-area {
+    width: 400px;
+    height: 300px;
+    font-size: 18px;
+    
+
+
+
+
+}

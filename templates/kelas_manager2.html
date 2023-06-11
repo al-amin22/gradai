@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Grade AI System</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="/static/css/stylesiswa.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    </head>
+    <style>
+        .data-soal{
+            margin-top: 10px;
+            width: 900px;
+            height: auto;
+            background-color: rgb(255, 128, 128);
+            font-size: 18px;
+            border-radius: 8px;
+            
+        }
+        .data-soal img{
+            margin-left: 30px;
+            margin-bottom: 5px;
+        }
+    </style>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="">Grade AI System</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            
+            
+            
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user fa-fw me-1"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" onclick="return confirm('Apakah yakin ingin keluar dari system?');" href="{{url_for('logout')}}">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <img src="/static/img/unja-removebg-preview.png" style="width: 100px; height: 100px; display: block; margin: auto;" alt="1674101744_2022-03-16.png">
+                            <center><li style="font-size: 20px; color: white; "></li><center>
+                            <a class="nav-link" href="{{url_for('indexguru')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link" href="{{url_for('profilguru')}}">
+                                <div class="sb-nav-link-icon"><i class="bi bi-person-square"></i></div>
+                                Profil
+                            </a>
+                            <a class="nav-link" href="{{url_for('kelasguru')}}">
+                                <div class="sb-nav-link-icon"><i class="bi bi-pencil-square"></i></div>
+                                Kelas
+                            </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Kelas Manager
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{url_for('tambahsoal')}}">Data siswa</a>
+                                    <a class="nav-link" href="{{url_for('datasoal')}}">Data Soal</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Teacher
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4"><i class="bi bi-columns-gap me-3"></i>Kelas Manager</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Lihat dan kelola kelas</li>
+                        </ol>
+                        <div class="data-soal">
+                            <p>1. Seseorang menimbang ikan bermassa  dengan timbangan yang 
+                                digantungkan pada atap lift, seperti terlihat pada Gambar dibawah 
+                                ini. Saat lift diam, skala pada timbangan menunjukkan angka 5 N.  
+                            </p>
+                            <p><img src="/static/img/soalnew1.jpg" alt=""></p>
+                            <p>Jika lift dipercepat ke atas, penunjukkan skala pada timbangan adalah . . .....</p>
+                        </div>
+                        <div class="data-soal">
+                            <p>2. Bola A, B dan C bergerak pada garis lurus dari kiri ke kanan. Saat t=0, bola A, B dan C melewati x=0, 
+                                posisi bola pada setiap detik berikutnya ditunjukkan pada Gambar dibawah ini.   
+                            </p>
+                            <p><img src="/static/img/soal2.jpg" alt=""></p>
+                            <p>Perbandingan resultan gaya yang bekerja pada bola A, B dan C adalah . . .</p>
+                        </div>
+                        <div class="data-soal">
+                            <p>3. Dua balok diletakkan pada meja yang licin didorong dengan gaya 
+                                seperti pada Gambar dibawah ini. Jika  merupakan gaya yang dikerjakan oleh 
+                                 pada , besarnya  adalah . . .    
+                            </p>
+                            <p><img src="/static/img/soal3.png" alt=""></p>
+                            <p></p>
+                        </div>
+                        <div class="data-soal">
+                            <p>4. Perhatikan Gambar dibawah ini, jika meja licin 
+                                dan gesekan dengan katrol diabaikan, massa tali juga dianggap nol, 
+                                percepatan gerakan sistem (a) adalah . .   
+                            </p>
+                            <p><img src="/static/img/soal4.png" alt=""></p>
+                            <p></p>
+                        </div>
+                        <div class="data-soal">
+                            <p>5. Balok  berada di sepanjang bidang miring licin dihubungkan dengan balok 
+                                , gesekan tali dengan katrol diabaikan dan massa tali juga dianggap nol, seperti 
+                                terlihat pada Gambar dibawah ini. Ketika  ditahan sehingga balok diam, 
+                                tegangan tali sebesar . Jika balok dilepas, sehingga balok  bergerak ke bawah dengan percepatan ,
+                                 berapa tegangan talinya?
+                            <p><img src="/static/img/soal5.png" alt=""></p>
+                            <p></p>
+                        </div>
+
+
+
+
+                        <div>
+                        </div>
+                    
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Pendidikan Fisika @NLP team</div>
+                            <div>
+                            </a></center>
+                        </div>
+                            
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="/static/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="/static/js/datatables-simple-demo.js"></script>
+    </body>
+</html>
